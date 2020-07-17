@@ -81,7 +81,8 @@ int main() {
 }
 */
 
-//Date : 2020-07-16
+/*
+//Date : 2020-07-17
 //Name : 김동혁
 //Chap : 18-4
 
@@ -95,3 +96,36 @@ int main() {
 //과정을 백분율로 화면에 출력하고, 한 번에 4KB단위로 복사합니다.그리고 대상 파일의
 //존재 유무에 상관없이 무조건 만들며, 파일의 크기가 최대 100MB 이상인 경우는 고려하
 //지 않습니다.
+
+int main(int argc, char *argv[]) {
+
+	FILE* fp1 = fopen("b1.txt", "rb");
+
+	FILE* fp2 = fopen("b2.txt", "wb");
+	char buf[4000] = { 0 };
+	
+	fseek(fp1, 0, SEEK_END);    // 파일 포인터를 파일의 끝으로 이동시킴
+	int size = ftell(fp1);          // 파일 포인터의 현재 위치를 얻음
+
+	fseek(fp1, 0, SEEK_SET);	//처음으로 돌려줌
+
+	printf("1번파일 크기 : %d", size);
+	int i = 0;
+
+	//fread(buf,sizeof(char), 1000, fp1);
+	float count = size/4000 +1;
+	while (feof(fp1) == 0) {
+		fread(buf, sizeof(char), 4000, fp1);
+		fputs(buf, fp2);
+		printf("진행률 : %.2f 퍼센트\n", (++i/count)*100);
+		
+	}
+
+	fclose(fp1);
+	fclose(fp2);
+
+	return 0;
+}
+
+
+*/
