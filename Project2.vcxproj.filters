@@ -60,5 +60,8 @@
     <ClCompile Include="chap18.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="DataStructuer.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
